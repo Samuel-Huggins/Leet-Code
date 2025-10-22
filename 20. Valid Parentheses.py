@@ -37,18 +37,14 @@ class Solution(object):
         :rtype: bool
         """
         stack = []
-        for i in range(len(s)):
-            if s[i] == "(" or "{" or "[":
-                stack.append(s[i])
-            if s[i] == ")" or "}" or "]":
-                check = stack.pop()
-                if s[i] == ")" and check == "(":
-                    return True
-                if s[i] == "}" and check == "{":
-                    return True
-                if s[i] == "]" and check == "[":
-                    return True
-                
-        return False
+        mapping = {')':'(','}':'{',']':'['}
+
+        for char in s:
+            if char in mapping.values():
+                stack.append(char)
+            elif char in mapping:
+                if not stack or mapping[char] != stack.pop():
+                    return False
+        return not stack
 
         
