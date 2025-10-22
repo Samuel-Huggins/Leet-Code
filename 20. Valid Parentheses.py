@@ -37,16 +37,18 @@ class Solution(object):
         :rtype: bool
         """
         stack = []
-        length = len(s)
-        for i in range(length):
-            stack.append(s[i])
-            for j in range(length):
-                if s[(length-j)] == s[i]:
-                    stack.pop()
-
-        if stack is not None:
-            return False
+        for i in range(len(s)):
+            if s[i] == "(" or "{" or "[":
+                stack.append(s[i])
+            if s[i] == ")" or "}" or "]":
+                check = stack.pop()
+                if s[i] == ")" and check == "(":
+                    return True
+                if s[i] == "}" and check == "{":
+                    return True
+                if s[i] == "]" and check == "[":
+                    return True
                 
-            
+        return False
 
         
