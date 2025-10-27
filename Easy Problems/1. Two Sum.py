@@ -32,11 +32,21 @@ class Solution(object):
         :rtype: List[int]
         """
         # Redid Two Sum 27/10/25 - Got a working solution, still O(n2)
+        # for i in range(len(nums)):
+        #     for j in range(i+1,len(nums)):
+        #         if nums[i] + nums[j] == target:
+        #             return i,j
+        # return []     
+
+        #Hashset Solution, not my own but works with a O(n) time complexity
+        m = {}
         for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i] + nums[j] == target:
-                    return i,j
-        return []     
+            diff = target - nums[i]
+            if diff in m:
+                return [i,m[diff]]
+            else:
+                m[nums[i]] = i
+        return
     
         
 
