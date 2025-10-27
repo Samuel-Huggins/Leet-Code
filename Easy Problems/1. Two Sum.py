@@ -31,12 +31,15 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # Redid Two Sum 27/10/25 - Got a working solution, still O(n2)
         for i in range(len(nums)):
             for j in range(i+1,len(nums)):
                 if nums[i] + nums[j] == target:
-                    return [i,j]
-        return []
-                
+                    return i,j
+        return []     
+    
+        
+
      
 
         
