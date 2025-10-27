@@ -24,9 +24,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        seen = []
+        nums.sort()
         for i in range(len(nums)):
-            if nums[i] in seen:
+            if nums[i] == nums[i-1]:
                 return True
-            seen.append(nums[i])
         return False
