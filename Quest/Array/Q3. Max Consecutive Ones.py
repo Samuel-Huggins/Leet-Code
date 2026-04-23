@@ -5,14 +5,14 @@ class Solution(object):
         :rtype: int
         """
         counter = 0
-        max = 0
-        length = len(nums)
-        for x in range(length):
-            for y in range(length-1):
-                if nums[x] == 1 and nums[y+1] == 1:
-                    counter += 1
-                    print(counter)
-                    if counter > max:
-                        max = counter
-            counter = 0
-        return max
+        max_count = 0
+
+        for num in nums:
+            if num == 1:
+                counter += 1
+                if counter > max_count:
+                    max_count = counter
+            else:
+                counter = 0
+
+        return max_count
