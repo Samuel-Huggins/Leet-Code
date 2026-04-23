@@ -4,9 +4,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        missing=[0] *2
+        seen = []
+        dupe = 0
+        missing = [0] * 2
         for i in range(len(nums)):
-            if nums[i] != i+1:
-                missing[0] = nums[i]
-                missing[1] = i+1
+            if nums[i] not in seen:
+                seen.append(nums[i])
+            else:
+                dupe = nums[i]
+
+        for i in range(1, len(nums) + 1):
+            if i not in seen:
+                missing[1] = i
+
+        missing[0] = dupe
         return missing
