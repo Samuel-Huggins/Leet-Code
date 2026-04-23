@@ -4,7 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        missing = [0] * 2
-        for num in nums:
-            if num != nums[num]:
-                return (missing[1] = nums[num]) + (missing[2] = num) 
+        missing=[0] *2
+        for i in range(len(nums)):
+            if nums[i] != i+1:
+                missing[0] = nums[i]
+                missing[1] = i+1
+        return missing
