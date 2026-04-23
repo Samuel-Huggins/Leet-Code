@@ -4,12 +4,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        seen = []
+        seen = set()
         dupe = 0
         missing = [0] * 2
         for i in range(len(nums)):
             if nums[i] not in seen:
-                seen.append(nums[i])
+                seen.add(nums[i])
             else:
                 dupe = nums[i]
 
