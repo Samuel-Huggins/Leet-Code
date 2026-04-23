@@ -4,14 +4,4 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        length = len(nums)
-        ans = []
-        for n in nums:
-            ans[n] = nums[n]
-        for length in 2(length):
-            ans[length] = nums[length]
-
-        print(len(ans))
-
-        
-    
+        return nums + nums
